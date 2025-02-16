@@ -39,7 +39,9 @@ namespace WebApi.Controllers
         {
             try
             {
-                var book = _context.Books.Where(b => b.Id.Equals(id)).SingleOrDefault();
+                var book = _manager
+                    .Book
+                    .GetOneBookById(id,false);
                 if (book is null)
                 {
                     return NotFound();
@@ -59,9 +61,8 @@ namespace WebApi.Controllers
                 if (book is null)
 
                     return BadRequest();
-
-                _context.Books.Add(book);
-                _context.SaveChanges();
+                _manager.Book.CreateOneBook(book);
+                _manager.Save();
                 return StatusCode(201, book);
             }
             catch (Exception ex)
@@ -75,10 +76,9 @@ namespace WebApi.Controllers
         {
             try
             {   //check book
-                var entity = _context
-                    .Books
-                    .Where(b=>b.Id.Equals(id))
-                    .SingleOrDefault();
+                var entity = _manager
+                    .Book
+                    .GetOneBookById(id, true);
 
                 if (entity is null)
                     return NotFound();//404
@@ -88,7 +88,7 @@ namespace WebApi.Controllers
                 entity.Title = book.Title;
                 entity.Price = book.Price;
 
-                _context.SaveChanges();
+                _manager.Save();
 
                 return Ok(book);
 
@@ -104,16 +104,17 @@ namespace WebApi.Controllers
         public IActionResult DeleteOneBook([FromRoute(Name ="id")]int id)
         {
             try
-            {   
-                var entity=_context
-                    .Books.Where(b=>b.Id.Equals(id))
-                    .SingleOrDefault();
+            {
+                var entity = _manager
+                    .Book
+                    .GetOneBookById(id, false);
+                    
                 if (entity is null) return NotFound(new{
                     statusCode=404,
                     message=$"Book with id:{id} could not found."
                 });
-                _context.Books.Remove(entity);
-                _context.SaveChanges();
+                _manager.Book.DeleteOneBook(entity);
+                _manager.Save();
                 return NoContent();
             }
             catch (Exception ex)
@@ -130,12 +131,11 @@ namespace WebApi.Controllers
             try
             {
                 //check entity
-                var entity = _context
-                    .Books.Where(b => b.Id.Equals(id))
-                    .SingleOrDefault();
+                var entity = _manager
+                     .Book .GetOneBookById(id,true);
                 if (entity is null) return NotFound();//404
                 bookPatch.ApplyTo(entity);
-                _context.SaveChanges();
+                _manager.Book.Update(entity);
                 return NoContent();
             }
             catch (Exception ex)
