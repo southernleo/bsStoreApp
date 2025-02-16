@@ -2,7 +2,8 @@
 using Entities.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Repositories.EFCore;
+using Repositories.Contracts;
+
 
 
 namespace WebApi.Controllers
@@ -10,16 +11,20 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class BooksController : ControllerBase
-    {
-        private readonly RepositoryContext _context;
-        public BooksController(RepositoryContext context) { _context = context; }
+    {   
+        private readonly IRepositoryManager _manager;
+        public BooksController(IRepositoryManager manager)
+        {
+            _manager = manager;
+        }
+       
 
         [HttpGet]
         public IActionResult GetAllBooks()
         {
             try
             {
-                var books = _context.Books.ToList();
+                var books = _manager.Book.GetAllBooks(false);
                 return Ok(books);
             }
             catch (Exception ex)
