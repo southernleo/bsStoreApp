@@ -1,0 +1,29 @@
+2025-02-17 11:07:59.2471 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2025-02-17 11:07:59.2555 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.4.0.3182. Product version: 5.4.0+4d45d445601312040107cbe2ac00e56c4bf4a60b. GlobalAssemblyCache: False
+2025-02-17 11:07:59.2555 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Halil\Desktop\ApiCourse\bsStoreApp\bsStoreApp\WebApi\nlog.config
+2025-02-17 11:07:59.2555 Info Configuration initialized.
+2025-02-17 11:13:31.1238 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2025-02-17 11:13:31.1340 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.4.0.3182. Product version: 5.4.0+4d45d445601312040107cbe2ac00e56c4bf4a60b. GlobalAssemblyCache: False
+2025-02-17 11:13:31.1340 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Halil\Desktop\ApiCourse\bsStoreApp\bsStoreApp\WebApi\nlog.config
+2025-02-17 11:13:31.1457 Info Configuration initialized.
+2025-02-17 11:19:04.2815 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2025-02-17 11:19:04.2902 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.4.0.3182. Product version: 5.4.0+4d45d445601312040107cbe2ac00e56c4bf4a60b. GlobalAssemblyCache: False
+2025-02-17 11:19:04.2902 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Halil\Desktop\ApiCourse\bsStoreApp\bsStoreApp\WebApi\nlog.config
+2025-02-17 11:19:04.3018 Info Configuration initialized.
+2025-02-17 11:21:10.1943 Info AppDomain Shutting down. LogFactory closing...
+2025-02-17 11:21:10.2120 Info LogFactory has been closed.
+2025-02-17 11:47:44.8027 Info Message Template Auto Format enabled
+2025-02-17 11:47:44.8536 Info Adding target FileTarget(Name=logfile)
+2025-02-17 11:47:44.8536 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Halil\Desktop\ApiCourse\bsStoreApp\bsStoreApp\WebApi\nlog.config
+2025-02-17 11:50:26.8221 Info AppDomain Shutting down. LogFactory closing...
+2025-02-17 11:50:26.8221 Info LogFactory has been closed.
+2025-02-17 11:51:33.9735 Info Message Template Auto Format enabled
+2025-02-17 11:51:34.0157 Info Adding target FileTarget(Name=logfile)
+2025-02-17 11:51:34.0225 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Halil\Desktop\ApiCourse\bsStoreApp\bsStoreApp\WebApi\nlog.config
+2025-02-17 11:53:37.5276 Info AppDomain Shutting down. LogFactory closing...
+2025-02-17 11:53:37.5377 Info LogFactory has been closed.
+2025-02-17 11:54:02.3070 Info Message Template Auto Format enabled
+2025-02-17 11:54:02.3334 Info Adding target FileTarget(Name=logfile)
+2025-02-17 11:54:02.3334 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Halil\Desktop\ApiCourse\bsStoreApp\bsStoreApp\WebApi\nlog.config
+2025-02-17 11:58:55.3733 Info AppDomain Shutting down. LogFactory closing...
+2025-02-17 11:58:55.3853 Info LogFactory has been closed.

@@ -90,7 +90,7 @@ namespace Presentation.Controllers
 
         }
 
-        [HttpDelete]
+        [HttpDelete("{id:int}")]
         public IActionResult DeleteOneBook([FromRoute(Name = "id")] int id)
         {
             try

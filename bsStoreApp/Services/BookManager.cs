@@ -1,11 +1,7 @@
 ﻿using Entities.Models;
 using Repositories.Contracts;
 using Services.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Services
 {
@@ -13,17 +9,19 @@ namespace Services
     {
 
         private readonly IRepositoryManager _manager;
-        public BookManager(IRepositoryManager manager)
+        private readonly ILoggerService _logger;
+
+       
+
+        public BookManager(IRepositoryManager manager, ILoggerService logger)
         {
 
-        _manager = manager; }
-
-
-    
+            _manager = manager;
+            _logger = logger;
+        }
 
         public Book CreateOneBook(Book book)
-        {   if(book is null)
-                throw new ArgumentNullException(nameof(book));
+        { 
            _manager.Book.CreateOneBook(book);
             _manager.Save();
             return book;
@@ -33,7 +31,13 @@ namespace Services
         {
             var entity=_manager.Book.GetOneBookById(id, trackChanges);
             if (entity is null)
-                 throw new Exception($"Book with id.{id} could not found");
+            {
+                string message = $"Book with id.{id} could not found";
+                _logger.LogInfo(message);
+                throw new Exception(message);
+
+            }
+                
 
             _manager.Book.DeleteOneBook(entity);
             _manager.Save();
@@ -56,9 +60,13 @@ namespace Services
 
             var entity = _manager.Book.GetOneBookById(id, trackChanges);
             if (entity is null)
-                throw new Exception($"Book with id.{id} could not found");
-            if (book is null)
-                throw new ArgumentNullException(nameof(book));
+            {
+                string msg = $"Book with id.{id} could not found";
+                _logger.LogInfo(msg);
+                throw new Exception(msg);
+
+            }
+               
             entity.Title = book.Title;
             entity.Price= book.Price;
 
