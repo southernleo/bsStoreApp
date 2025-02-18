@@ -21,7 +21,7 @@ namespace Presentation.ActionFilters
         }
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            _logger.LogInfo(Log(("OnActionExecuting", context.RouteData));
+            _logger.LogInfo(Log("OnActionExecuting", context.RouteData));
         }
 
         private string Log(string modelName, RouteData RouteData) 
