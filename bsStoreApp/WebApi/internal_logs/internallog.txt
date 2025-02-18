@@ -49,3 +49,6 @@
 2025-02-18 11:33:27.4943 Info Message Template Auto Format enabled
 2025-02-18 11:33:27.5390 Info Adding target FileTarget(Name=logfile)
 2025-02-18 11:33:27.5390 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Halil\Desktop\ApiCourse\bsStoreApp\bsStoreApp\WebApi\nlog.config
+2025-02-18 12:17:20.2639 Info Message Template Auto Format enabled
+2025-02-18 12:17:20.3130 Info Adding target FileTarget(Name=logfile)
+2025-02-18 12:17:20.3215 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Halil\Desktop\ApiCourse\bsStoreApp\bsStoreApp\WebApi\nlog.config
