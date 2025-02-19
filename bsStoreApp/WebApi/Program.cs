@@ -34,7 +34,9 @@ builder.Services.ConfigureServiceManager();
 builder.Services.ConfigureLoggerService();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.ConfigureActionFilters();
-builder.Services.ConfigureActionFilters();
+builder.Services.ConfigureCors();
+builder.Services.ConfigureDataShaper();
+
 var app = builder.Build();
 var logger=app.Services.GetRequiredService<ILoggerService>();
 app.ConfigureExceptionHandler(logger);
