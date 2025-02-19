@@ -11,7 +11,13 @@ namespace Entities.Exceptions
         protected BadRequestException(string message):base(message) {
 
         }
-        public PriceOutofRangeBadRequestException(): base("maximum price should be less than 1000 and greater than 10"
+        public class PriceOutofRangeBadRequestException : BadRequestException
+        {
+            public PriceOutofRangeBadRequestException() : base("maximum price should be less than 1000 and greater than 10")
+            {
+
+            }
+        }
 
     }
 }
