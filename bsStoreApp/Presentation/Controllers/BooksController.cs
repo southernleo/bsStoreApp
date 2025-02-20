@@ -59,7 +59,7 @@ namespace Presentation.Controllers
         }
 
         [ServiceFilter(typeof(ValidationFiterAttribute))]
-        [HttpPost]
+        [HttpPost(Name = "CreateOneBookAsync")]
         public async Task<IActionResult> CreateOneBookAsync([FromBody] BookDtoForInsertion bookDto)
         {
             var book = await _manager.BookService.CreateOneBookAsync(bookDto);
