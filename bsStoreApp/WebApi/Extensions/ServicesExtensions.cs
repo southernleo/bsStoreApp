@@ -7,6 +7,8 @@ using Repositories.Contracts;
 using Repositories.EFCore;
 using Services;
 using Services.Contracts;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Presentation.Controllers;
 
 namespace WebApi.Extensions
 {
@@ -21,9 +23,9 @@ namespace WebApi.Extensions
             services.AddScoped<IRepositoryManager, RepositoryManager>();
         public static void ConfigureServiceManager(this IServiceCollection services) =>
             services.AddScoped<IServiceManager, ServiceManager>();
-        
-        public static void ConfigureLoggerService(this IServiceCollection services)=>
-            services.AddSingleton<ILoggerService,LoggerManager>();
+
+        public static void ConfigureLoggerService(this IServiceCollection services) =>
+            services.AddSingleton<ILoggerService, LoggerManager>();
 
         public static void ConfigureActionFilters(this IServiceCollection services)
         {
@@ -79,7 +81,24 @@ namespace WebApi.Extensions
                     .Add("application/vnd.btkakademi.apiroot+xml");
                 }
             });
-        }
 
+        }
+        public static void ConfigureVersioning(this IServiceCollection services)
+        {
+            services.AddApiVersioning(opt =>
+            {
+                opt.ReportApiVersions = true;
+                opt.AssumeDefaultVersionWhenUnspecified = true;
+                opt.DefaultApiVersion = new ApiVersion(1, 0);
+                opt.ApiVersionReader = new HeaderApiVersionReader("api-version");
+
+                opt.Conventions.Controller<BooksController>()
+                   .HasApiVersion(new ApiVersion(1, 0));
+
+                opt.Conventions.Controller<BooksV2Controller>()
+                    .HasDeprecatedApiVersion(new ApiVersion(2, 0));
+            });
+
+        }
     }
 }
