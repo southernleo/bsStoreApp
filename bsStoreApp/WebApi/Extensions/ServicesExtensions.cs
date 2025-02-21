@@ -168,6 +168,11 @@ namespace WebApi.Extensions
             var jwtSettings = configuration.GetSection("JwtSettings");
             var secretKey = jwtSettings["secretKey"];
 
+            if (string.IsNullOrEmpty(secretKey))
+            {
+                throw new Exception("JWT secret key is missing or empty in appsettings.json");
+            }
+
             services.AddAuthentication(opt =>
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

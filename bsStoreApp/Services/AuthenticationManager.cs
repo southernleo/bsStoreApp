@@ -75,8 +75,8 @@ namespace Services
 
         private SigningCredentials GetSinginCredentials()
         {
-            var jwtSettings = _configuration.GetSection("JwtSetting");
-            var key = Encoding.UTF8.GetBytes(jwtSettings["secretkey"]);
+            var jwtSettings = _configuration.GetSection("JwtSettings");
+            var key = Encoding.UTF8.GetBytes(jwtSettings["secretKey"]);
             var secret=new SymmetricSecurityKey(key);
             return new SigningCredentials(secret,SecurityAlgorithms.HmacSha256);
         }
