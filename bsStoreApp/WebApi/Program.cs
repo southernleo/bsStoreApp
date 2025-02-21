@@ -35,7 +35,7 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First()); // Çakýþmayý çözer
+    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First()); 
 });
 
 
