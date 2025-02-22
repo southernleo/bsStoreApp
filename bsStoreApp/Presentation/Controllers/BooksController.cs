@@ -26,7 +26,7 @@ namespace Presentation.Controllers
         {
             _manager = manager;
         }
-        [Authorize]
+        [Authorize(Roles ="User")]
         [HttpHead]
         [HttpGet(Name = "GetAllBooksAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
@@ -50,7 +50,7 @@ namespace Presentation.Controllers
                 Ok(result.linkResponse.LinkedEntities) :
                 Ok(result.linkResponse.ShapedEntities);
         }
-
+        [Authorize(Roles ="Editor")]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetOneBookAsync([FromRoute(Name = "id")] int id)
         {
@@ -60,7 +60,7 @@ namespace Presentation.Controllers
 
             return Ok(book);
         }
-
+        [Authorize(Roles ="Admin")]
         [ServiceFilter(typeof(ValidationFiterAttribute))]
         [HttpPost(Name = "CreateOneBookAsync")]
         public async Task<IActionResult> CreateOneBookAsync([FromBody] BookDtoForInsertion bookDto)

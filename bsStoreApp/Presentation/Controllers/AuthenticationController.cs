@@ -1,4 +1,5 @@
 ﻿using Entities.DataTransferObjects;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
 using Services.Contracts;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Presentation.Controllers
 {
+    
     [ApiController]
     [Route("api/authentication")]
     public  class AuthenticationController:ControllerBase
@@ -46,12 +48,22 @@ namespace Presentation.Controllers
         {
             if(!await _service.AuthenticationService.ValidateUser(user))
                 return Unauthorized();
-            return Ok(new
-            {
-                Token = await _service.AuthenticationService.CreateToken()
-            });
 
-        }    
-         
+            var tokenDto = await _service
+                .AuthenticationService
+                .CreateToken(populateExp: true);
+
+            return Ok(tokenDto);
+        }
+
+        [HttpPost("refresh")]
+        [ServiceFilter(typeof(ValidationFiterAttribute))]
+        public async Task<IActionResult> Refresh([FromBody] TokenDto tokenDto)
+        {
+            var tokenDtoReturn=await _service
+                .AuthenticationService
+                .RefreshToken(tokenDto);
+            return Ok(tokenDtoReturn);
+        }
     }
 }
