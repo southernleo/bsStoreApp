@@ -58,7 +58,7 @@ namespace Services
 
         private JwtSecurityToken GenerateTokenOptions(SigningCredentials signinCredentials, List<Claim> claims)
         {
-            var jwtSettings = _configuration.GetSection("JwtSetting");
+            var jwtSettings = _configuration.GetSection("JwtSettings");
             var tokenOptions = new JwtSecurityToken(
                 issuer: jwtSettings["validIssuer"],
                 audience: jwtSettings["validAudience"],
