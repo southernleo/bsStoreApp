@@ -236,3 +236,16 @@
 2025-02-23 18:25:17.4061 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Halil\Desktop\ApiCourse\bsStoreApp\bsStoreApp\WebApi\nlog.config
 2025-02-23 18:25:18.1707 Info AppDomain Shutting down. LogFactory closing...
 2025-02-23 18:25:18.1707 Info LogFactory has been closed.
+2025-02-23 19:46:08.0339 Info Message Template Auto Format enabled
+2025-02-23 19:46:08.0773 Info Adding target FileTarget(Name=logfile)
+2025-02-23 19:46:08.0773 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Halil\Desktop\ApiCourse\bsStoreApp\bsStoreApp\WebApi\nlog.config
+2025-02-23 20:29:56.5578 Info Message Template Auto Format enabled
+2025-02-23 20:29:56.5815 Info Adding target FileTarget(Name=logfile)
+2025-02-23 20:29:56.5815 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Halil\Desktop\ApiCourse\bsStoreApp\bsStoreApp\WebApi\nlog.config
+2025-02-23 20:29:57.2650 Info AppDomain Shutting down. LogFactory closing...
+2025-02-23 20:29:57.2650 Info LogFactory has been closed.
+2025-02-23 20:30:11.8699 Info Message Template Auto Format enabled
+2025-02-23 20:30:11.8949 Info Adding target FileTarget(Name=logfile)
+2025-02-23 20:30:11.8949 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Halil\Desktop\ApiCourse\bsStoreApp\bsStoreApp\WebApi\nlog.config
+2025-02-23 20:30:12.6507 Info AppDomain Shutting down. LogFactory closing...
+2025-02-23 20:30:12.6507 Info LogFactory has been closed.

@@ -12,7 +12,7 @@ namespace Entities.Models
 
         public String CatagoryName { get; set; }    
 
-
+        public ICollection<Book> Books { get; set; }    
                 
     }
 }
