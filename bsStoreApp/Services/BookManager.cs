@@ -16,20 +16,27 @@ namespace Services
         private readonly ILoggerService _logger;
         private readonly IMapper _mapper;
         private readonly IBookLinks _bookLinks;
+        private readonly ICategoryService _categoryService;
 
         public BookManager(IRepositoryManager manager,
             ILoggerService logger,
             IMapper mapper,
-            IBookLinks bookLinks)
+            IBookLinks bookLinks,
+            ICategoryService categoryService)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
             _bookLinks = bookLinks;
+            _categoryService = categoryService;
         }
 
         public async Task<BookDto> CreateOneBookAsync(BookDtoForInsertion bookDto)
         {
+            var category = await _categoryService.GetOneCategoryByIdAsync(bookDto.CategoryId,false);
+           
+            if(category is null)
+                throw new CategoryNotFoundException(bookDto.CategoryId);
             var entity = _mapper.Map<Book>(bookDto);
             _manager.Book.CreateOneBook(entity);
             await _manager.SaveAsync();
